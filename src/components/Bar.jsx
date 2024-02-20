@@ -11,15 +11,16 @@ const daysOfWeek = [
   "Friday",
   "Saturday",
 ];
-const dayName = daysOfWeek[dayOfWeek].toLowerCase().substring(0,3);
-
+const dayName = daysOfWeek[dayOfWeek].toLowerCase().substring(0, 3);
 
 export default function Bar({ amount, day, ...rest }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const barClasses = `   rounded-md w-[33px] sm:w-[50px] ${dayName === day ? 'bg-cyan' : 'bg-softRed'} hover:opacity-50 hover:cursor-pointer`;
-  const amountClasses = ` top-[-32px] left-[-9px] hidden  absolute  ${
-    isHovered ? "active" : ''
+  const barClasses = ` ease-in-out duration-300  rounded-md w-[33px] sm:w-[50px] ${
+    dayName === day ? "bg-cyan" : "bg-softRed"
+  } hover:opacity-50 hover:cursor-pointer`;
+  const amountClasses = `ease-in-out duration-300 top-[-32px] left-[-9px] hidden  absolute  ${
+    isHovered ? "active" : ""
   } text-veryPaleOrange bg-darkBrown rounded-md p-1 text-sm sm:p-2 sm:text-base sm:top-[-50px] sm:left-[-10px] `;
 
   const handleMouseEnter = () => {
